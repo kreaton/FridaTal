@@ -1,0 +1,113 @@
+@page "/"
+
+<PageTitle>FridaTal</PageTitle>
+
+<header class="title">
+    <h1>
+        <span style="--c:#ff4d6d">F</span><span style="--c:#ff9f1c">r</span><span style="--c:#ffd60a">i</span><span style="--c:#2ec4b6">d</span><span style="--c:#3a86ff">a</span><span style="--c:#8338ec">T</span><span style="--c:#ff4d6d">a</span><span style="--c:#06d6a0">l</span>
+    </h1>
+    <p class="subtitle">Click the number just <strong>before</strong> and the number just <strong>after</strong>!</p>
+</header>
+
+<main class="quiz">
+    <section class="target-box" aria-label="The number">
+        <div class="target-label">What are my neighbours?</div>
+        <div class="target-number">@_target</div>
+    </section>
+
+    <section class="right-side">
+        <div class="grid">
+            @foreach (var n in _gridNumbers)
+            {
+                var number = n;
+                var cls = "tile tile-" + (number % 10)
+                          + (_selected.Contains(number) ? " selected" : "")
+                          + (_solved ? " locked" : "");
+                <button type="button" class="@cls" @onclick="() => Toggle(number)" disabled="@_solved">@number</button>
+            }
+        </div>
+
+        <div class="feedback-row">
+            @if (_result == Result.Correct)
+            {
+                <div class="message success">🎉 Super! You got it! 🎉</div>
+            }
+            else if (_result == Result.Wrong)
+            {
+                <div class="message retry">🤔 Try again!</div>
+            }
+            else
+            {
+                <div class="message hint">Pick two numbers</div>
+            }
+
+            <button type="button" class="next" @onclick="NextQuiz">Next ➜</button>
+        </div>
+    </section>
+</main>
+
+@code {
+    private enum Result { None, Correct, Wrong }
+
+    private const int Min = 1;
+    private const int Max = 20;
+
+    private readonly Random _rng = new();
+    private readonly HashSet<int> _selected = new();
+    private List<int> _gridNumbers = new();
+    private int _target;
+    private bool _solved;
+    private Result _result = Result.None;
+
+    protected override void OnInitialized() => NextQuiz();
+
+    private void NextQuiz()
+    {
+        // The target needs both a number before and after it inside 1-20,
+        // so it is picked from 2-19.
+        _target = _rng.Next(Min + 1, Max);
+        _gridNumbers = Enumerable.Range(Min, Max).OrderBy(_ => _rng.Next()).ToList();
+        _selected.Clear();
+        _solved = false;
+        _result = Result.None;
+    }
+
+    private void Toggle(int number)
+    {
+        if (_solved) return;
+
+        if (_selected.Contains(number))
+        {
+            _selected.Remove(number);
+        }
+        else if (_selected.Count < 2)
+        {
+            _selected.Add(number);
+        }
+        else
+        {
+            return; // only two may be lit at once
+        }
+
+        Evaluate();
+    }
+
+    private void Evaluate()
+    {
+        if (_selected.Count < 2)
+        {
+            _result = Result.None;
+            return;
+        }
+
+        if (_selected.Contains(_target - 1) && _selected.Contains(_target + 1))
+        {
+            _result = Result.Correct;
+            _solved = true;
+        }
+        else
+        {
+            _result = Result.Wrong;
+        }
+    }
+}
