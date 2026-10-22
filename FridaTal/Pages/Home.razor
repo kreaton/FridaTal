@@ -1,4 +1,6 @@
 @page "/"
+@using Microsoft.JSInterop
+@inject IJSRuntime JS
 
 <PageTitle>FridaTal</PageTitle>
 
@@ -30,7 +32,7 @@
         <div class="feedback-row">
             @if (_result == Result.Correct)
             {
-                <div class="message success">🎉 Super! You got it! 🎉</div>
+                <div class="message success">Super! You got it!</div>
             }
             else if (_result == Result.Wrong)
             {
@@ -72,7 +74,7 @@
         _result = Result.None;
     }
 
-    private void Toggle(int number)
+    private async Task Toggle(int number)
     {
         if (_solved) return;
 
@@ -90,6 +92,15 @@
         }
 
         Evaluate();
+
+        if (_result == Result.Correct)
+        {
+            await JS.InvokeVoidAsync("fridaSounds.success");
+        }
+        else if (_result == Result.Wrong)
+        {
+            await JS.InvokeVoidAsync("fridaSounds.error");
+        }
     }
 
     private void Evaluate()
