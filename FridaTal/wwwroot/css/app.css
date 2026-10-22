@@ -67,6 +67,8 @@ html, body {
     padding: 1rem;
     text-align: center;
     background-image: radial-gradient(circle at 20% 20%, #fff0f3, #fff 60%);
+    /* lets .target-number size itself to the box width (cqi units) */
+    container-type: inline-size;
 }
 
 .target-label {
@@ -76,7 +78,8 @@ html, body {
 }
 
 .target-number {
-    font-size: clamp(7rem, 20vw, 13rem);
+    /* two digits are about 1.3em wide, so 60cqi keeps "20" inside the box */
+    font-size: min(13rem, 60cqi);
     font-weight: 900;
     line-height: 1.05;
     background: linear-gradient(135deg, #ff4d6d, #ff9f1c, #8338ec);
@@ -231,7 +234,7 @@ html, body {
         border-radius: 28px;
     }
     .target-label { font-size: clamp(.9rem, 3vh, 1.3rem); }
-    .target-number { font-size: min(34vh, 18vw); line-height: 1; }
+    .target-number { font-size: min(34vh, 60cqi); line-height: 1; }
 
     .right-side { min-height: 0; gap: .75rem; }
 
