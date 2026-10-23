@@ -13,6 +13,7 @@ html, body {
 
 .app-shell {
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -213,8 +214,8 @@ html, body {
     }
 
     .title { margin-bottom: .4rem; flex: 0 0 auto; }
-    .title h1 { font-size: clamp(1.8rem, 8vh, 3.2rem); }
-    .subtitle { font-size: clamp(.85rem, 2.8vh, 1.25rem); margin: 0; }
+    .title h1 { font-size: clamp(1.8rem, 8dvh, 3.2rem); }
+    .subtitle { font-size: clamp(.85rem, 2.8dvh, 1.25rem); margin: 0; }
 
     .quiz {
         flex: 1 1 auto;
@@ -233,8 +234,8 @@ html, body {
         border-width: 6px;
         border-radius: 28px;
     }
-    .target-label { font-size: clamp(.9rem, 3vh, 1.3rem); }
-    .target-number { font-size: min(34vh, 60cqi); line-height: 1; }
+    .target-label { font-size: clamp(.9rem, 3dvh, 1.3rem); }
+    .target-number { font-size: min(34dvh, 60cqi); line-height: 1; }
 
     .right-side { min-height: 0; gap: .75rem; }
 
@@ -249,15 +250,15 @@ html, body {
         aspect-ratio: auto;
         height: 100%;
         min-height: 0;
-        font-size: clamp(1.3rem, 6vh, 2.8rem);
+        font-size: clamp(1.3rem, 6dvh, 2.8rem);
         border-radius: 18px;
         box-shadow: 0 4px 0 rgba(0,0,0,.25);
     }
     .tile.selected { transform: scale(1.05); outline-width: 4px; box-shadow: 0 0 0 7px #ffbe0b, 0 0 25px 8px rgba(255, 221, 0, .9); }
 
     .feedback-row { flex: 0 0 auto; gap: .75rem; }
-    .message { padding: .4rem 1rem; font-size: clamp(1.1rem, 4.5vh, 2rem); }
-    .next { padding: .5rem 1.6rem; font-size: clamp(1.1rem, 4.5vh, 1.8rem); }
+    .message { padding: .4rem 1rem; font-size: clamp(1.1rem, 4.5dvh, 2rem); }
+    .next { padding: .5rem 1.6rem; font-size: clamp(1.1rem, 4.5dvh, 1.8rem); }
 }
 
 /* ---------- Blazor error bar ---------- */
