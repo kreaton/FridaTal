@@ -5,6 +5,13 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FridaTal", "FridaTal\FridaTal.csproj", "{6F1B2C3D-4A5B-4C6D-8E7F-9A0B1C2D3E4F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{A1E5C0D2-3B4F-4E6A-9C8D-7F1E2D3C4B01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{B2F6D1E3-4C5A-4F7B-8D9E-6A2F3E4D5C02}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\deploy.yml = .github\workflows\deploy.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2F6D1E3-4C5A-4F7B-8D9E-6A2F3E4D5C02} = {A1E5C0D2-3B4F-4E6A-9C8D-7F1E2D3C4B01}
 	EndGlobalSection
 EndGlobal
