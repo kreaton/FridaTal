@@ -30,7 +30,7 @@ Then open <http://localhost:5161> (or <https://localhost:7161>).
 Plain `dotnet run` in the solution folder does not work, because the project
 lives in the `FridaTal` subfolder. Either pass `--project` or `cd FridaTal` first.
 
-In Visual Studio, open `FridaTal.sln` and press F5; the `FridaTal` launch profile
+In Visual Studio, open `FridaTal.slnx` and press F5; the `FridaTal` launch profile
 opens the browser automatically.
 
 ## Publish
