@@ -200,6 +200,15 @@ html, body {
 .next:hover { transform: translateY(-2px); }
 .next:active { transform: translateY(4px); box-shadow: 0 2px 0 #4c1d95; }
 
+/* ---------- Credits ---------- */
+.credits {
+    flex: 0 0 auto;
+    margin-top: .75rem;
+    text-align: center;
+    font-size: .75rem;
+    opacity: .6;
+}
+
 /* ---------- Landscape (iPad etc.): fit everything in the visible height ---------- */
 @media (orientation: landscape) and (min-width: 701px) {
     html, body { height: 100%; overflow: hidden; }
@@ -259,6 +268,7 @@ html, body {
     .feedback-row { flex: 0 0 auto; gap: .75rem; }
     .message { padding: .4rem 1rem; font-size: clamp(1.1rem, 4.5dvh, 2rem); }
     .next { padding: .5rem 1.6rem; font-size: clamp(1.1rem, 4.5dvh, 1.8rem); }
+    .credits { margin-top: .2rem; }
 }
 
 /* ---------- Blazor error bar ---------- */

@@ -8,12 +8,12 @@
     <h1>
         <span style="--c:#ff4d6d">F</span><span style="--c:#ff9f1c">r</span><span style="--c:#ffd60a">i</span><span style="--c:#2ec4b6">d</span><span style="--c:#3a86ff">a</span><span style="--c:#8338ec">T</span><span style="--c:#ff4d6d">a</span><span style="--c:#06d6a0">l</span>
     </h1>
-    <p class="subtitle">Click the number just <strong>before</strong> and the number just <strong>after</strong>!</p>
+    <p class="subtitle">Tryk på tallet lige <strong>før</strong> og tallet lige <strong>efter</strong>!</p>
 </header>
 
 <main class="quiz">
-    <section class="target-box" aria-label="The number">
-        <div class="target-label">What are my neighbours?</div>
+    <section class="target-box" aria-label="Tallet">
+        <div class="target-label">Hvem er mine naboer?</div>
         <div class="target-number">@_target</div>
     </section>
 
@@ -32,21 +32,23 @@
         <div class="feedback-row">
             @if (_result == Result.Correct)
             {
-                <div class="message success">Super! You got it!</div>
+                <div class="message success">Super! Det er rigtigt!</div>
             }
             else if (_result == Result.Wrong)
             {
-                <div class="message retry">🤔 Try again!</div>
+                <div class="message retry">🤔 Prøv igen!</div>
             }
             else
             {
-                <div class="message hint">Pick two numbers</div>
+                <div class="message hint">Vælg to tal</div>
             }
 
-            <button type="button" class="next" @onclick="NextQuiz">Next ➜</button>
+            <button type="button" class="next" @onclick="NextQuiz">Næste ➜</button>
         </div>
     </section>
 </main>
+
+<footer class="credits">Lavet med kærlighed 💛 (c) 2026 Per Hejndorf, Kreaton – @BuildInfo.Display</footer>
 
 @code {
     private enum Result { None, Correct, Wrong }
