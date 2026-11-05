@@ -1,6 +1,14 @@
 # FridaTal
 
-A small number game for kids. A number between 2 and 19 is shown, and the child
+![Blazor WebAssembly](https://img.shields.io/badge/Blazor-WebAssembly-lightgrey)
+![.NET 10](https://img.shields.io/badge/.NET-10-lightgrey)
+![Installable web app](https://img.shields.io/badge/PWA-installable-lightgrey)
+
+![FridaTal: which numbers are the neighbours?](images/banner.png)
+
+**A small number game for kids.**
+
+A number between 2 and 19 is shown, and the child
 clicks the number just **before** and the number just **after** it on a grid of
 1–20. A cheerful sound plays when both are right, and an "uh-oh" sound when the
 two picks are wrong. **Næste ➜** (Next) starts a new round.
