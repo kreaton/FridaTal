@@ -3,5 +3,5 @@
   <Folder Name="/.github/workflows/">
     <File Path=".github/workflows/deploy.yml" />
   </Folder>
-  <Project Path="FridaTal/FridaTal.csproj" />
+  <Project Path="src/FridaTal/FridaTal.csproj" />
 </Solution>

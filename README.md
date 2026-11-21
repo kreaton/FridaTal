@@ -31,44 +31,31 @@ can be installed to an iPad/phone home screen as a PWA.
   dotnet dev-certs https --trust
   ```
 
-## Run it
+## Running locally
 
-From the solution folder, either double-click `Run.bat` or run:
-
-```bash
-dotnet run --project FridaTal
-```
-
-Then open <http://localhost:5161> (or <https://localhost:7161>).
-
-Plain `dotnet run` in the solution folder does not work, because the project
-lives in the `FridaTal` subfolder. Either pass `--project` or `cd FridaTal` first.
-
-In Visual Studio, open `FridaTal.slnx` and press F5; the `FridaTal` launch profile
-opens the browser automatically.
-
-## Publish
-
-`FridaTal\Publish.bat` runs:
+Requires the [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```bash
-dotnet publish -c Release -o bin/publish
+dotnet run --project src/FridaTal
 ```
 
-The static site ends up in `FridaTal\bin\publish\wwwroot`. Copy that folder to
-any static web host. If it is not hosted at the site root, change
-`<base href="/" />` in `wwwroot/index.html` to the sub-path (for example
-`<base href="/fridatal/" />`).
+Then open <http://localhost:5161> (or <https://localhost:7161>). In Visual Studio, open `FridaTal.slnx` and press F5; the `FridaTal` launch profile opens the browser automatically.
+
+## Publishing
+
+Pushing to `main` builds the app and puts it in the `fridatal/` folder of the KidsGames GitHub Pages site (<https://kreaton.github.io/KidsGames/fridatal/>) with [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). It needs the repository secret `PAGES_DEPLOY_KEY`: the private half of a deploy key with write access to `kreaton/KidsGames`.
+
+The app is served from a `fridatal` sub-path: `<base href>` in [`wwwroot/index.html`](src/FridaTal/wwwroot/index.html) is `fridatal`.
 
 ## Project layout
 
 | Path | What it is |
 | --- | --- |
-| `FridaTal/Pages/Home.razor` | The whole game: picking the number, the grid and checking answers |
-| `FridaTal/wwwroot/css/app.css` | All styling, including the landscape (iPad) layout |
-| `FridaTal/wwwroot/js/sounds.js` | Success and error sounds, synthesized with the Web Audio API (no audio files) |
-| `FridaTal/wwwroot/index.html` | Host page, icons and PWA meta tags |
-| `FridaTal/wwwroot/manifest.webmanifest` | PWA manifest for "Add to Home Screen" |
+| `src/FridaTal/Pages/Home.razor` | The whole game: picking the number, the grid and checking answers |
+| `src/FridaTal/wwwroot/css/app.css` | All styling, including the landscape (iPad) layout |
+| `src/FridaTal/wwwroot/js/sounds.js` | Success and error sounds, synthesized with the Web Audio API (no audio files) |
+| `src/FridaTal/wwwroot/index.html` | Host page, icons and PWA meta tags |
+| `src/FridaTal/wwwroot/manifest.webmanifest` | PWA manifest for "Add to Home Screen" |
 
 ## Changing the game
 
