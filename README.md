@@ -56,6 +56,9 @@ The app is served from a `fridatal` sub-path: `<base href>` in [`wwwroot/index.h
 | `src/FridaTal/wwwroot/js/sounds.js` | Success and error sounds, synthesized with the Web Audio API (no audio files) |
 | `src/FridaTal/wwwroot/index.html` | Host page, icons and PWA meta tags |
 | `src/FridaTal/wwwroot/manifest.webmanifest` | PWA manifest for "Add to Home Screen" |
+| `src/FridaTal/wwwroot/icons/` | App icons and favicon |
+| `art/icon.png`, `art/icon-maskable.png` | The icon artwork (512 px) |
+| `tools/make-icons.ps1` | Scales the artwork to the icon sizes and copies the 512 px icon to the KidsGames front page (`KidsGames/billeder`) |
 
 ## Changing the game
 
