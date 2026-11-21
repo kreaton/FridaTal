@@ -12,6 +12,8 @@
 
 **A small number game for kids.**
 
+▶️ **Play it:** <https://kreaton.github.io/KidsGames/fridatal/>
+
 A number between 2 and 19 is shown, and the child
 clicks the number just **before** and the number just **after** it on a grid of
 1–20. A cheerful sound plays when both are right, and an "uh-oh" sound when the
